@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["apps/api", "libs/auth"]
+
+
+[workspace.package]
+version = "0.1.0"
+authors = ["nathaelb <pro.nathaelbonnal@gmail.com>"]
+edition = "2024"
