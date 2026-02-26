@@ -74,3 +74,25 @@ impl CryptoVersion {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Timestamp(pub DateTime<Utc>);
+
+#[cfg(test)]
+mod tests {
+    use crate::vault::value_objects::{CryptoVersion, OwnerSub, Revision};
+
+    #[test]
+    fn owner_sub_cannot_be_empty() {
+        assert!(OwnerSub::new("").is_err());
+    }
+
+    #[test]
+    fn revision_next_increments() {
+        let r = Revision(5);
+        assert_eq!(r.next().0, 6);
+    }
+
+    #[test]
+    fn crypto_version_must_be_positive() {
+        assert!(CryptoVersion::new(0).is_err());
+        assert!(CryptoVersion::new(1).is_ok());
+    }
+}
