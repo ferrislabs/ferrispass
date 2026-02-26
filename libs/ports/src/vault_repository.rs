@@ -2,7 +2,7 @@ use domain::vault::{Etag, OwnerSub, Vault};
 
 use crate::RepositoryError;
 
-#[cfg_attr(test, mockall::automock)]
+#[cfg_attr(any(test, feature = "testing"), mockall::automock)]
 pub trait VaultRepository: Send + Sync {
     fn find_by_owner(
         &self,

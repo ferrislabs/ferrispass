@@ -1,0 +1,18 @@
+[package]
+name = "application"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+chrono = { version = "0.4.44", features = ["serde"] }
+domain = { path = "../domain" }
+ports = { path = "../ports" }
+serde = "1.0.228"
+thiserror = "2.0.18"
+uuid = { version = "1.21.0", features = ["serde", "v4"] }
+
+[dev-dependencies]
+mockall = "0.14.0"
+ports = { path = "../ports", features = ["testing"] }
+tokio = { version = "1.49.0", features = ["macros", "rt-multi-thread"] }

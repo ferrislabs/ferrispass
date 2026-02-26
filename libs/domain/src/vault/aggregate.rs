@@ -54,7 +54,8 @@ impl Vault {
         new_package.validate()?;
 
         if &self.etag != expected_etag {
-            return Err(DomainError::Conflict {
+            return Err(DomainError::ConcurrencyConflict {
+                vault_id: self.id.0.to_string(),
                 expected: expected_etag.0.clone(),
                 actual: self.etag.0.clone(),
             });
@@ -164,7 +165,10 @@ mod tests {
             valid_package(),
         );
 
-        assert!(matches!(result, Err(DomainError::Conflict { .. })));
+        assert!(matches!(
+            result,
+            Err(DomainError::ConcurrencyConflict { .. })
+        ));
     }
 
     #[test]

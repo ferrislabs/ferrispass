@@ -4,8 +4,11 @@ version.workspace = true
 authors.workspace = true
 edition.workspace = true
 
+[features]
+testing = ["dep:mockall"]
+
 [dependencies]
 domain = { path = "../domain" }
-mockall = "0.14.0"
+mockall = { version = "0.14.0", optional = true }
 serde = "1.0.228"
 thiserror = "2.0.18"
