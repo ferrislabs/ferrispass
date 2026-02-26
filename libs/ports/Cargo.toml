@@ -1,0 +1,11 @@
+[package]
+name = "ports"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+domain = { path = "../domain" }
+mockall = "0.14.0"
+serde = "1.0.228"
+thiserror = "2.0.18"

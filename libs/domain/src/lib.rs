@@ -1,2 +1,2 @@
-pub mod shared;
+pub(crate) mod shared;
 pub mod vault;
