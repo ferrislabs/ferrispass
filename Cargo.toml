@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["apps/api", "libs/auth"]
+members = ["apps/api", "libs/auth", "libs/domain"]
 
 
 [workspace.package]
